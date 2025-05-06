@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лучшие сборки для героев Dota 2</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-top: 0.5rem;
+        }
+        
+        nav {
+            background-color: var(--dark);
+            padding: 1rem 0;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        nav li {
+            margin: 0 15px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        nav a:hover {
+            background-color: var(--secondary);
+        }
+        
+        .hero-section {
+            background: url('https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/blt0c28c5a6a3cae2b1/5ebd5b0b248a28605479ccf5/DOTA2_KeyArt_16x9_no_logo.jpg') center/cover;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            color: white;
+            text-align: center;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+        
+        .hero-content h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero-content p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        
+        .btn:hover {
+            background-color: #c0392b;
+            transform: translateY(-2px);
+        }
+        
+        .section {
+            padding: 4rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary);
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary);
+            margin: 15px auto 0;
+        }
+        
+        .hero-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .hero-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .hero-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .hero-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .hero-card-content {
+            padding: 20px;
+        }
+        
+        .hero-card h3 {
+            margin-top: 0;
+            color: var(--primary);
+        }
+        
+        .item-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .item-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+        
+        .item-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .item-list img {
+            width: 32px;
+            height: 32px;
+            margin-right: 10px;
+        }
+        
+        .popular-builds {
+            background-color: var(--light);
+        }
+        
+        .build-steps {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        
+        .build-step {
+            flex: 1;
+            min-width: 250px;
+            margin: 0 10px 20px;
+            background-color: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .build-step h3 {
+            color: var(--secondary);
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .step-number {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background-color: var(--secondary);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav li {
+                margin: 5px 0;
+            }
+            
+            .build-steps {
+                flex-direction: column;
+            }
+            
+            .build-step {
+                margin: 0 0 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Сборки предметов Dota 2</h1>
+            <p class="subtitle">Лучшие предметы для каждого героя в текущем мете</p>
+        </div>
+    </header>
+    
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#carry">Керри</a></li>
+                <li><a href="#mid">Мидлейнеры</a></li>
+                <li><a href="#offlane">Оффлейнеры</a></li>
+                <li><a href="#support">Саппорты</a></li>
+                <li><a href="#guides">Гайды</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <section class="hero-section">
+        <div class="hero-content">
+            <h2>Актуальные сборки для 7.38c</h2>
+            <p>Узнайте лучшие предметы для ваших любимых героев в текущем патче. Наш сайт предоставляет проверенные сборки от топовых игроков и профессиональных команд.</p>
+            <a href="#popular" class="btn">Смотреть сборки</a>
+        </div>
+    </section>
+    
+    <section id="popular" class="section">
+        <div class="container">
+            <h2 class="section-title">Популярные герои текущего мета</h2>
+            
+            <div class="hero-grid">
+                <div class="hero-card">
+                    <img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/phantom_assassin.png" alt="Phantom Assassin">
+                    <div class="hero-card-content">
+                        <h3>Phantom Assassin</h3>
+                        <ul class="item-list">
+                            <li><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/bfury.png" alt="Battle Fury"> Battle Fury</li>
+                            <li><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/desolator.png" alt="Desolator"> Desolator</li>
+                            <li><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/black_king_bar.png" alt="BKB"> Black King Bar</li>
+                            <li><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/abyssal_blade.png" alt="Abyssal Blade"> Abyssal Blade</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="hero-card">
+                    <img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/invoker.png" alt="Invoker">
+                    <div class="hero-card-content">
+                        <h3>Invoker</h3>
+                        <ul class="item-list">
+                            <li><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/veil_of_discord.png" alt="Veil of Discord"> Veil of Discord</li>
+                            <li><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/aghanims_shard.png" alt="Aghanim's Shard"> Aghanim's Shard</li>
+                            <li><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/octarine_core.png" alt="Octarine Core"> Octarine Core</li>
+                            <li><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/refresher.png" alt="Refresher Orb"> Refresher Orb</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="hero-card">
+                    <img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/mars.png" alt="Mars">
+                    <div class="hero-card-content">
+                        <h3>Mars</h3>
+                        <ul class="item-list">
+                            <li><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/soul_ring.png" alt="Soul Ring"> Soul Ring</li>
+                            <li><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/blink.png" alt="Blink Dagger"> Blink Dagger</li>
+                            <li><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/black_king_bar.png" alt="BKB"> Black King Bar</li>
+                            <li><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/assault.png" alt="Assault Cuirass"> Assault Cuirass</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="guides" class="section popular-builds">
+        <div class="container">
+            <h2 class="section-title">Как правильно собирать предметы</h2>
+            
+            <div class="build-steps">
+                <div class="build-step">
+                    <h3><span class="step-number">1</span>Анализ героя</h3>
+                    <p>Определите сильные и слабые стороны вашего героя. Нужен ли ему урон, выживаемость или контроль?</p>
+                </div>
+                
+                <div class="build-step">
+                    <h3><span class="step-number">2</span>Роль в команде</h3>
+                    <p>Учитывайте свою роль (керри, саппорт и т.д.) и текущую ситуацию в игре.</p>
+                </div>
+                
+                <div class="build-step">
+                    <h3><span class="step-number">3</span>Противники</h3>
+                    <p>Анализируйте состав противника и подбирайте предметы, которые будут эффективны против них.</p>
+                </div>
+                
+                <div class="build-step">
+                    <h3><span class="step-number">4</span>Гибкость</h3>
+                    <p>Не следуйте шаблонам слепо - адаптируйте сборку под конкретную игру.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="carry" class="section">
+        <div class="container">
+            <h2 class="section-title">Топ керри текущего патча</h2>
+            
+            <div class="hero-grid">
+                <div class="hero-card">
+                    <img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/terrorblade.png" alt="Terrorblade">
+                    <div class="hero-card-content">
+                        <h3>Terrorblade</h3>
+                        <ul class="item-list">
+                            <li><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/wraith_band.png" alt="Wraith Band"> Wraith Band (x2)</li>
+                            <li><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/power_treads.png" alt="Power Treads"> Power Treads</li>
+                            <li><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/dragon_lance.png" alt="Dragon Lance"> Dragon Lance</li>
+                            <li><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/manta.png" alt="Manta Style"> Manta Style</li>
+                            <li><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/skadi.png" alt="Eye of Skadi"> Eye of Skadi</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="hero-card">
+                    <img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/faceless_void.png" alt="Faceless Void">
+                    <div class="hero-card-content">
+                        <h3>Faceless Void</h3>
+                        <ul class="item-list">
+                            <li><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/mask_of_madness.png" alt="Mask of Madness"> Mask of Madness</li>
+                            <li><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/maelstrom.png" alt="Maelstrom"> Maelstrom</li>
+                            <li><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/black_king_bar.png" alt="BKB"> Black King Bar</li>
+                            <li><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/mjollnir.png" alt="Mjollnir"> Mjollnir</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+            <p>&copy;notnaturalananas. Самые крутые сборки дота2.</p>
+        </div>
+    </footer>
+</body>
+</html>
